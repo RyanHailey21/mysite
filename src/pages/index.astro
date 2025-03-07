@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+	<section class="hero">
+		<div class="hero-content">
+			<h1>Welcome to My Digital Space</h1>
+			<p class="intro">
+				I'm a [Your Role] passionate about [Your Interests]. 
+				Through this portfolio and blog, I share my projects, ideas, and journey.
+			</p>
+			<div class="cta-buttons">
+				<a href="/portfolio" class="cta-button primary">View My Work</a>
+				<a href="/contact" class="cta-button secondary">Get In Touch</a>
+			</div>
+		</div>
+	</section>
+	
+	<section class="featured">
+		<h2>Featured Projects</h2>
+		<div class="featured-grid">
+			<!-- Featured projects will be added in the next step -->
+			<div class="featured-item">Featured Project 1</div>
+			<div class="featured-item">Featured Project 2</div>
+		</div>
+	</section>
+	
+	<section class="recent-posts">
+		<h2>Recent Blog Posts</h2>
+		<div class="posts-grid">
+			<!-- Recent posts will be dynamically fetched in the next step -->
+			<div class="post-preview">Blog Post 1</div>
+			<div class="post-preview">Blog Post 2</div>
+			<div class="post-preview">Blog Post 3</div>
+		</div>
+		<div class="view-all">
+			<a href="/blog" class="view-all-link">View All Posts →</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero {
+		background-color: var(--color-bg-secondary);
+		padding: 4rem 2rem;
+		border-radius: 12px;
+		margin-bottom: 3rem;
+		text-align: center;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+	}
+	
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	
+	h1 {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		color: var(--color-text-primary);
+	}
+	
+	.intro {
+		font-size: 1.4rem;
+		color: var(--color-text-secondary);
+		margin-bottom: 2rem;
+		line-height: 1.6;
+	}
+	
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		margin-top: 1.5rem;
+	}
+	
+	.cta-button {
+		display: inline-block;
+		padding: 0.8rem 1.6rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.2s ease;
+	}
+	
+	.primary {
+		background-color: var(--color-accent-primary);
+		color: var(--color-bg-primary);
+	}
+	
+	.primary:hover {
+		background-color: var(--color-accent-secondary);
+	}
+	
+	.secondary {
+		background-color: transparent;
+		color: var(--color-accent-primary);
+		border: 2px solid var(--color-accent-primary);
+	}
+	
+	.secondary:hover {
+		background-color: rgba(76, 201, 240, 0.15);
+		color: var(--color-accent-secondary);
+		border-color: var(--color-accent-secondary);
+	}
+	
+	section {
+		margin-bottom: 3rem;
+	}
+	
+	h2 {
+		font-size: 2rem;
+		margin-bottom: 1.5rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid rgba(var(--gray-light), 0.2);
+		color: var(--color-text-primary);
+	}
+	
+	.featured-grid, .posts-grid {
+		display: grid;
+		gap: 2rem;
+	}
+	
+	.featured-grid {
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	}
+	
+	.posts-grid {
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	}
+	
+	.featured-item, .post-preview {
+		background-color: var(--color-bg-secondary);
+		padding: 2rem;
+		border-radius: 8px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+		transition: transform 0.3s ease;
+		color: var(--color-text-secondary);
+		font-weight: 500;
+	}
+	
+	.featured-item:hover, .post-preview:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+	}
+	
+	.view-all {
+		margin-top: 2rem;
+		text-align: center;
+	}
+	
+	.view-all-link {
+		color: var(--color-accent-primary);
+		text-decoration: none;
+		font-weight: 600;
+		font-family: var(--font-family-code);
+	}
+	
+	.view-all-link:hover {
+		color: var(--color-accent-secondary);
+		text-decoration: underline;
+	}
+	
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.cta-buttons {
+			flex-direction: column;
+			gap: 0.8rem;
+		}
+		
+		h1 {
+			font-size: 2.5rem;
+		}
+		
+		.intro {
+			font-size: 1.2rem;
+		}
+	}
+</style>

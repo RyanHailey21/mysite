@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Portfolio"
+	description="Showcase of my projects and work"
+>
+	<div class="portfolio-container">
+		<h1>My Portfolio</h1>
+		<p>Here are some of the projects I've worked on. Each represents my skills, interests, and growth as a developer.</p>
+		
+		<div class="projects-grid">
+			<!-- Project cards will go here in the next step -->
+			<div class="project-card">
+				<h3>Project 1</h3>
+				<p>Description of the first project goes here.</p>
+				<div class="project-links">
+					<a href="#" class="btn">View Live</a>
+					<a href="#" class="btn">Source Code</a>
+				</div>
+			</div>
+			<div class="project-card">
+				<h3>Project 2</h3>
+				<p>Description of the second project goes here.</p>
+				<div class="project-links">
+					<a href="#" class="btn">View Live</a>
+					<a href="#" class="btn">Source Code</a>
+				</div>
+			</div>
+			<div class="project-card">
+				<h3>Project 3</h3>
+				<p>Description of the third project goes here.</p>
+				<div class="project-links">
+					<a href="#" class="btn">View Live</a>
+					<a href="#" class="btn">Source Code</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.portfolio-container {
+		margin: 2rem auto;
+		width: 100%;
+		max-width: 1200px;
+	}
+	
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+	
+	.project-card {
+		background-color: var(--color-bg-secondary);
+		border-radius: 8px;
+		padding: 2rem;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+		transition: var(--transition-standard);
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.project-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+	}
+	
+	.project-card h3 {
+		margin-top: 0;
+		margin-bottom: 1rem;
+		color: var(--color-text-primary);
+		border-bottom: 2px solid rgba(var(--gray-light), 0.2);
+		padding-bottom: 0.5rem;
+	}
+	
+	.project-card p {
+		flex-grow: 1;
+		color: var(--color-text-secondary);
+		margin-bottom: 1.5rem;
+	}
+	
+	.project-links {
+		display: flex;
+		gap: 1rem;
+		margin-top: auto;
+	}
+	
+	.project-links a {
+		padding: 0.5rem 1rem;
+		text-align: center;
+		font-size: 0.9rem;
+	}
+	
+	@media (max-width: 768px) {
+		.projects-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

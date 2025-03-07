@@ -1,0 +1,87 @@
+---
+interface Props {
+  text: string;
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  className?: string;
+}
+
+const { 
+  text, 
+  href, 
+  variant = 'outline',
+  className = ''
+} = Astro.props;
+
+const getClassNames = () => {
+  let classes = 'btn ';
+  
+  switch (variant) {
+    case 'primary':
+      classes += 'btn-primary ';
+      break;
+    case 'secondary':
+      classes += 'btn-secondary ';
+      break;
+    case 'outline':
+      classes += 'btn-outline ';
+      break;
+  }
+  
+  return classes + className;
+};
+---
+
+{
+  href ? (
+    <a href={href} class={getClassNames()}>
+      {text}
+    </a>
+  ) : (
+    <button class={getClassNames()}>
+      {text}
+    </button>
+  )
+}
+
+<style>
+  .btn {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-lg);
+    font-family: var(--font-family-code);
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-standard);
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-accent-primary);
+    color: var(--color-bg-primary);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-accent-secondary);
+  }
+  
+  .btn-secondary {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-accent-primary);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-bg-tertiary);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-accent-primary);
+    border: 1px solid var(--color-accent-primary);
+  }
+  
+  .btn-outline:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+  }
+</style>
