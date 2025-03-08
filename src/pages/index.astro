@@ -1,41 +1,103 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import {Icon} from 'astro-icon/components';
 ---
 
 <BaseLayout>
-	<section class="hero">
-		<div class="hero-content">
-			<h1>Welcome to My Digital Space</h1>
-			<p class="intro">
-				I'm a [Your Role] passionate about [Your Interests]. 
-				Through this portfolio and blog, I share my projects, ideas, and journey.
+	<Hero 
+		title="Turning Ideas into Exceptional Digital Experiences"
+		subtitle="I'm a developer passionate about crafting clean, accessible, and user-friendly websites that solve real problems."
+		primaryCta={{ text: "View My Work", href: "/portfolio" }}
+		secondaryCta={{ text: "Get In Touch", href: "/contact" }}
+	/>
+	
+	<section class="section-container">
+		<div class="flex items-center justify-between mb-8">
+			<h2 class="heading-lg">Featured Projects</h2>
+			<a href="/portfolio" class="text-primary hover:text-primary-hover transition-colors flex items-center gap-1 font-mono text-sm">
+				View All
+				<Icon name="ph:arrow-right" class="w-4 h-4" />
+			</a>
+		</div>
+		
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<ProjectCard
+				title="E-commerce Platform"
+				description="A modern online shopping experience with cart functionality, user authentication, and payment processing."
+				tags={["React", "Node.js", "MongoDB", "Stripe"]}
+				image="/blog-placeholder-3.jpg"
+				liveUrl="#"
+				repoUrl="#"
+			/>
+			<ProjectCard
+				title="Portfolio Website"
+				description="A responsive portfolio website showcasing my skills and projects with a clean, accessible design."
+				tags={["Astro", "Tailwind CSS", "TypeScript"]}
+				image="/blog-placeholder-4.jpg"
+				liveUrl="#"
+				repoUrl="#"
+			/>
+		</div>
+	</section>
+	
+	<section class="section-container">
+		<div class="flex items-center justify-between mb-8">
+			<h2 class="heading-lg">Latest Articles</h2>
+			<a href="/blog" class="text-primary hover:text-primary-hover transition-colors flex items-center gap-1 font-mono text-sm">
+				All Posts
+				<Icon name="ph:arrow-right" class="w-4 h-4" />
+			</a>
+		</div>
+		
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+			<article class="card-modern">
+				<span class="text-xs text-text-muted font-mono mb-2 block">March 15, 2024</span>
+				<h3 class="text-xl font-bold text-text-primary mb-2 hover:text-primary transition-colors">
+					<a href="/blog/first-post">Best Practices for Modern Web Development</a>
+				</h3>
+				<p class="text-text-secondary line-clamp-2">
+					Exploring the most effective approaches to building fast, accessible, and maintainable websites in today's landscape.
+				</p>
+			</article>
+			
+			<article class="card-modern">
+				<span class="text-xs text-text-muted font-mono mb-2 block">February 28, 2024</span>
+				<h3 class="text-xl font-bold text-text-primary mb-2 hover:text-primary transition-colors">
+					<a href="/blog/second-post">Understanding CSS Grid Layout</a>
+				</h3>
+				<p class="text-text-secondary line-clamp-2">
+					A comprehensive guide to mastering CSS Grid Layout for complex web designs with examples and best practices.
+				</p>
+			</article>
+			
+			<article class="card-modern">
+				<span class="text-xs text-text-muted font-mono mb-2 block">February 10, 2024</span>
+				<h3 class="text-xl font-bold text-text-primary mb-2 hover:text-primary transition-colors">
+					<a href="/blog/third-post">Getting Started with Astro</a>
+				</h3>
+				<p class="text-text-secondary line-clamp-2">
+					Learn how to build lightning-fast websites with Astro - the modern frontend framework for content-focused websites.
+				</p>
+			</article>
+		</div>
+	</section>
+	
+	<section class="section-container">
+		<div class="card-modern bg-opacity-50 text-center py-16">
+			<h2 class="heading-lg">Let's Work Together</h2>
+			<p class="paragraph max-w-2xl mx-auto">
+				Interested in collaborating on a project? I'm always open to discussing new opportunities and ideas.
 			</p>
-			<div class="cta-buttons">
-				<a href="/portfolio" class="cta-button primary">View My Work</a>
-				<a href="/contact" class="cta-button secondary">Get In Touch</a>
+			<div class="flex justify-center gap-4 mt-6">
+				<a href="/contact" class="btn-primary">
+					Get in Touch
+				</a>
+				<a href="/portfolio" class="btn-outline">
+					View My Work
+				</a>
 			</div>
-		</div>
-	</section>
-	
-	<section class="featured">
-		<h2>Featured Projects</h2>
-		<div class="featured-grid">
-			<!-- Featured projects will be added in the next step -->
-			<div class="featured-item">Featured Project 1</div>
-			<div class="featured-item">Featured Project 2</div>
-		</div>
-	</section>
-	
-	<section class="recent-posts">
-		<h2>Recent Blog Posts</h2>
-		<div class="posts-grid">
-			<!-- Recent posts will be dynamically fetched in the next step -->
-			<div class="post-preview">Blog Post 1</div>
-			<div class="post-preview">Blog Post 2</div>
-			<div class="post-preview">Blog Post 3</div>
-		</div>
-		<div class="view-all">
-			<a href="/blog" class="view-all-link">View All Posts →</a>
 		</div>
 	</section>
 </BaseLayout>

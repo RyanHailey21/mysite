@@ -1,41 +1,104 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import {Icon} from 'astro-icon/components';
 ---
 
 <BaseLayout
 	title="Portfolio"
 	description="Showcase of my projects and work"
 >
-	<div class="portfolio-container">
-		<h1>My Portfolio</h1>
-		<p>Here are some of the projects I've worked on. Each represents my skills, interests, and growth as a developer.</p>
+	<div class="section-container">
+		<div class="max-w-3xl mb-12">
+			<h1 class="heading-xl">My Portfolio</h1>
+			<p class="paragraph">
+				Welcome to my portfolio of selected works. Each project represents a unique challenge, solution, and learning experience. Browse through my work to see how I approach problem-solving in different contexts.
+			</p>
+		</div>
+
+		<!-- Project Categories/Filters -->
+		<div class="flex flex-wrap gap-2 mb-10">
+			<button class="px-4 py-2 rounded-md bg-secondary-bg text-text-primary font-mono text-sm border-2 border-primary">
+				All Projects
+			</button>
+			<button class="px-4 py-2 rounded-md bg-secondary-bg bg-opacity-50 text-text-secondary hover:text-primary hover:bg-opacity-100 transition-colors font-mono text-sm">
+				Web Development
+			</button>
+			<button class="px-4 py-2 rounded-md bg-secondary-bg bg-opacity-50 text-text-secondary hover:text-primary hover:bg-opacity-100 transition-colors font-mono text-sm">
+				UI/UX Design
+			</button>
+			<button class="px-4 py-2 rounded-md bg-secondary-bg bg-opacity-50 text-text-secondary hover:text-primary hover:bg-opacity-100 transition-colors font-mono text-sm">
+				Mobile Apps
+			</button>
+		</div>
 		
-		<div class="projects-grid">
-			<!-- Project cards will go here in the next step -->
-			<div class="project-card">
-				<h3>Project 1</h3>
-				<p>Description of the first project goes here.</p>
-				<div class="project-links">
-					<a href="#" class="btn">View Live</a>
-					<a href="#" class="btn">Source Code</a>
-				</div>
-			</div>
-			<div class="project-card">
-				<h3>Project 2</h3>
-				<p>Description of the second project goes here.</p>
-				<div class="project-links">
-					<a href="#" class="btn">View Live</a>
-					<a href="#" class="btn">Source Code</a>
-				</div>
-			</div>
-			<div class="project-card">
-				<h3>Project 3</h3>
-				<p>Description of the third project goes here.</p>
-				<div class="project-links">
-					<a href="#" class="btn">View Live</a>
-					<a href="#" class="btn">Source Code</a>
-				</div>
-			</div>
+		<!-- Projects Grid -->
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<ProjectCard
+				title="E-commerce Platform"
+				description="A fully responsive online shopping experience with cart functionality, user authentication, and secure payment processing."
+				tags={["React", "Node.js", "MongoDB", "Stripe"]}
+				image="/blog-placeholder-3.jpg"
+				liveUrl="#"
+				repoUrl="#"
+			/>
+			
+			<ProjectCard
+				title="Portfolio Website"
+				description="A modern portfolio showcasing my projects with accessible design and animations. Built with performance in mind."
+				tags={["Astro", "Tailwind CSS", "TypeScript"]}
+				image="/blog-placeholder-4.jpg"
+				liveUrl="#"
+				repoUrl="#"
+			/>
+			
+			<ProjectCard
+				title="Task Management App"
+				description="A productivity application that helps users organize tasks, set deadlines, and track progress on various projects."
+				tags={["Vue", "Firebase", "Vuetify"]}
+				image="/blog-placeholder-2.jpg"
+				liveUrl="#"
+				repoUrl="#"
+			/>
+			
+			<ProjectCard
+				title="Weather Dashboard"
+				description="A weather application providing real-time forecasts, interactive maps, and historical weather data visualization."
+				tags={["React", "OpenWeather API", "Chart.js"]}
+				image="/blog-placeholder-1.jpg"
+				liveUrl="#"
+				repoUrl="#"
+			/>
+			
+			<ProjectCard
+				title="Fitness Tracker"
+				description="A mobile-friendly application for tracking workouts, setting fitness goals, and monitoring progress with detailed analytics."
+				tags={["React Native", "GraphQL", "Firebase"]}
+				image="/blog-placeholder-5.jpg"
+				liveUrl="#"
+				repoUrl="#"
+			/>
+			
+			<ProjectCard
+				title="Recipe Finder"
+				description="A web app for discovering recipes based on available ingredients, dietary restrictions, and cuisine preferences."
+				tags={["JavaScript", "Edamam API", "CSS Grid"]}
+				image="/blog-placeholder-about.jpg"
+				liveUrl="#"
+				repoUrl="#"
+			/>
+		</div>
+		
+		<!-- Contact CTA -->
+		<div class="mt-16 text-center">
+			<h2 class="heading-lg">Interested in working together?</h2>
+			<p class="paragraph max-w-2xl mx-auto">
+				I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+			</p>
+			<a href="/contact" class="btn-primary inline-flex items-center mt-4">
+				Let's Talk 
+				<Icon name="ph:chat-circle-text-duotone" class="ml-2 w-5 h-5" />
+			</a>
 		</div>
 	</div>
 </BaseLayout>

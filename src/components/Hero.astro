@@ -1,0 +1,71 @@
+---
+import  {Icon} from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  primaryCta?: {
+    text: string;
+    href: string;
+  };
+  secondaryCta?: {
+    text: string;
+    href: string;
+  };
+}
+
+const { 
+  title, 
+  subtitle,
+  primaryCta,
+  secondaryCta
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-secondary-bg rounded-xl mb-16 shadow-card">
+  <div class="absolute inset-0 z-0 opacity-20">
+    <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="herogradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" stop-color="var(--color-accent-primary)" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="var(--color-accent-primary)" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#herogradient)" />
+      <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="var(--color-accent-primary)" stroke-width="0.2" />
+      <path d="M0,50 Q25,25 50,50 T100,50" stroke="var(--color-accent-primary)" stroke-width="0.3" fill="none" />
+      <path d="M0,30 Q35,65 70,30 T100,30" stroke="var(--color-accent-primary)" stroke-width="0.2" fill="none" />
+    </svg>
+  </div>
+  
+  <div class="relative z-10 px-6 py-16 md:py-24 max-w-6xl mx-auto">
+    <div class="flex flex-col items-center text-center">
+      <span class="mb-4 px-3 py-1 text-xs font-mono rounded-full bg-primary bg-opacity-20 text-primary border border-primary">
+        <Icon name="ph:sparkle" class="inline mr-1 w-4 h-4" /> Welcome to My Digital Space
+      </span>
+      
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 text-text-primary leading-tight">
+        {title}
+      </h1>
+      
+      <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-10">
+        {subtitle}
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4">
+        {primaryCta && (
+          <a href={primaryCta.href} class="btn-primary flex items-center justify-center">
+            <span>{primaryCta.text}</span>
+            <Icon name="ph:arrow-right" class="ml-2 w-4 h-4" />
+          </a>
+        )}
+        
+        {secondaryCta && (
+          <a href={secondaryCta.href} class="btn-outline flex items-center justify-center">
+            <span>{secondaryCta.text}</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

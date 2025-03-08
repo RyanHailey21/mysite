@@ -1,84 +1,137 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <BaseLayout
 	title="Contact Me"
 	description="Get in touch with me for collaborations or inquiries"
 >
-	<div class="contact-container">
-		<h1>Contact Me</h1>
-		<p>I'm always open to new opportunities, collaborations, or just a friendly chat. Feel free to reach out through any of the channels below.</p>
+	<div class="section-container">
+		<div class="max-w-3xl mx-auto mb-12">
+			<h1 class="heading-xl text-center">Contact Me</h1>
+			<p class="paragraph text-center">
+				I'm always open to new opportunities, collaborations, or just a friendly chat. Feel free to reach out through any of the channels below.
+			</p>
+		</div>
 		
-		<div class="contact-methods">
-			<div class="contact-card">
-				<h3>Email</h3>
-				<p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+			<div class="card-modern flex flex-col items-center text-center">
+				<div class="bg-primary bg-opacity-20 rounded-full p-4 mb-4">
+					<Icon name="ph:envelope-duotone" class="w-8 h-8 text-primary" />
+				</div>
+				<h3 class="text-xl font-bold text-text-primary mb-2">Email</h3>
+				<p class="text-text-secondary mb-4">
+					Drop me a message anytime
+				</p>
+				<a href="mailto:your.email@example.com" class="text-primary hover:text-primary-hover transition-colors font-medium">
+					your.email@example.com
+				</a>
 			</div>
 			
-			<div class="contact-card">
-				<h3>Social Media</h3>
-				<p>Connect with me on <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a> or <a href="https://twitter.com/yourusername" target="_blank">Twitter</a></p>
+			<div class="card-modern flex flex-col items-center text-center">
+				<div class="bg-primary bg-opacity-20 rounded-full p-4 mb-4">
+					<Icon name="ph:linkedin-logo-duotone" class="w-8 h-8 text-primary" />
+				</div>
+				<h3 class="text-xl font-bold text-text-primary mb-2">Social Media</h3>
+				<p class="text-text-secondary mb-4">
+					Let's connect professionally
+				</p>
+				<div class="flex gap-4">
+					<a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-hover transition-colors font-medium">
+						LinkedIn
+					</a>
+					<a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-hover transition-colors font-medium">
+						Twitter
+					</a>
+				</div>
 			</div>
 			
-			<div class="contact-card">
-				<h3>GitHub</h3>
-				<p>Check out my code at <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+			<div class="card-modern flex flex-col items-center text-center">
+				<div class="bg-primary bg-opacity-20 rounded-full p-4 mb-4">
+					<Icon name="ph:github-logo-duotone" class="w-8 h-8 text-primary" />
+				</div>
+				<h3 class="text-xl font-bold text-text-primary mb-2">GitHub</h3>
+				<p class="text-text-secondary mb-4">
+					Explore my open source work
+				</p>
+				<a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary-hover transition-colors font-medium">
+					github.com/yourusername
+				</a>
 			</div>
 		</div>
 		
-		<!-- Contact form will be added in a later step -->
+		<!-- Contact form -->
+		<div class="max-w-2xl mx-auto">
+			<div class="card-modern">
+				<h2 class="text-2xl font-bold text-text-primary mb-6 pb-2 border-b border-gray-700">
+					Send a Message
+				</h2>
+				
+				<form class="space-y-6">
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div>
+							<label for="name" class="block text-text-secondary text-sm font-medium mb-2">
+								Your Name
+							</label>
+							<input 
+								type="text" 
+								id="name" 
+								name="name"
+								class="w-full bg-primary-bg border border-gray-700 rounded-md py-3 px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
+								required
+							/>
+						</div>
+						<div>
+							<label for="email" class="block text-text-secondary text-sm font-medium mb-2">
+								Your Email
+							</label>
+							<input 
+								type="email" 
+								id="email" 
+								name="email"
+								class="w-full bg-primary-bg border border-gray-700 rounded-md py-3 px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
+								required
+							/>
+						</div>
+					</div>
+					
+					<div>
+						<label for="subject" class="block text-text-secondary text-sm font-medium mb-2">
+							Subject
+						</label>
+						<input 
+							type="text" 
+							id="subject" 
+							name="subject"
+							class="w-full bg-primary-bg border border-gray-700 rounded-md py-3 px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
+							required
+						/>
+					</div>
+					
+					<div>
+						<label for="message" class="block text-text-secondary text-sm font-medium mb-2">
+							Your Message
+						</label>
+						<textarea 
+							id="message" 
+							name="message"
+							rows="6"
+							class="w-full bg-primary-bg border border-gray-700 rounded-md py-3 px-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
+							required
+						></textarea>
+					</div>
+					
+					<div>
+						<button 
+							type="submit" 
+							class="btn-primary w-full md:w-auto"
+						>
+							Send Message <Icon name="ph:paper-plane-right-duotone" class="inline ml-2 w-4 h-4" />
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </BaseLayout>
-
-<style>
-	.contact-container {
-		margin: 2rem auto;
-		width: 100%;
-		max-width: 800px;
-	}
-	
-	.contact-methods {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		gap: 1.5rem;
-		margin-top: 2rem;
-	}
-	
-	.contact-card {
-		background-color: var(--color-bg-secondary);
-		padding: 1.5rem;
-		border-radius: 8px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-		transition: var(--transition-standard);
-	}
-	
-	.contact-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-	}
-	
-	.contact-card h3 {
-		margin-top: 0;
-		border-bottom: 2px solid rgba(var(--gray-light), 0.2);
-		padding-bottom: 0.5rem;
-		margin-bottom: 1rem;
-		color: var(--color-text-primary);
-	}
-	
-	.contact-card p {
-		color: var(--color-text-secondary);
-	}
-	
-	.contact-card a {
-		color: var(--color-accent-primary);
-		text-decoration: none;
-		font-weight: 500;
-		transition: var(--transition-standard);
-	}
-	
-	.contact-card a:hover {
-		color: var(--color-accent-secondary);
-		text-decoration: underline;
-	}
-</style>

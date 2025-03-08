@@ -1,0 +1,81 @@
+---
+import  {Icon}  from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  description: string;
+  tags?: string[];
+  image?: string;
+  liveUrl?: string;
+  repoUrl?: string;
+}
+
+const { 
+  title, 
+  description, 
+  tags = [],
+  image,
+  liveUrl,
+  repoUrl
+} = Astro.props;
+---
+
+<div class="card-modern group">
+  {image && (
+    <div class="aspect-video w-full mb-4 overflow-hidden rounded-md">
+      <img 
+        src={image} 
+        alt={`Screenshot of ${title} project`} 
+        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+  )}
+  
+  <div>
+    <div class="flex items-start justify-between">
+      <h3 class="text-2xl font-bold text-text-primary mb-2">
+        {title}
+      </h3>
+      
+      <div class="flex gap-2">
+        {liveUrl && (
+          <a 
+            href={liveUrl} 
+            class="text-primary hover:text-primary-hover transition-colors p-1" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label={`View live demo of ${title}`}
+          >
+            <Icon name ="ph:globe" class="w-5 h-5" />
+          </a>
+        )}
+        
+        {repoUrl && (
+          <a 
+            href={repoUrl} 
+            class="text-primary hover:text-primary-hover transition-colors p-1" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label={`View source code for ${title}`}
+          >
+            <Icon name="ph:github-logo" class="w-5 h-5" />
+          </a>
+        )}
+      </div>
+    </div>
+    
+    <p class="text-text-secondary mb-4">
+      {description}
+    </p>
+    
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span class="text-xs px-2 py-1 rounded bg-primary-bg border border-primary text-primary font-mono">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
